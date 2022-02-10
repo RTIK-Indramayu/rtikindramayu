@@ -74,11 +74,11 @@ if (isset($_POST['submit'])) {
                             
                             <div class="form-group">
                                 <label for="email" class="sr-only">Nama</label>
-                                <input type="email" name="name" id="pengirim" class="form-control" placeholder="Masukkan email Anda">
+                                <input type="text" name="nama" id="pengirim" class="form-control" placeholder="Nama">
                             </div>
                             <div class="form-group">
                                 <label for="subject" class="sr-only">Email</label>
-                                <input type="text" name="email" id="subjek" class="form-control" placeholder="Masukkan email Anda">
+                                <input type="email" name="email" id="subjek" class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="pesan" id="pesan" cols="50" rows="6" placeholder="Tulis pesan Anda..."></textarea>
