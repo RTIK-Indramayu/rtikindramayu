@@ -5,6 +5,16 @@
 
   <!-- Page Content -->
 
+
+<?php
+
+  $query = "SELECT * FROM photo";
+  $result = mysqli_query($connection,$query);
+  $rowcount = mysqli_num_rows($result); 
+
+?>
+
+
   <div class="container">
 
     <div class="row">
@@ -17,26 +27,36 @@
             </ol>
           <div class="carousel-inner">
 
+            <?php
+                 for($i=1;$i<=$rowcount;$i++)
+                 {
+                     $row = mysqli_fetch_array($result);
+                 
+                    if($i==1){
+                
+                
+            ?>
+
             <div class="carousel-item active">
-              <img class="d-block w-100" src="asset/a.png">
+              <img class="d-block w-100" src="photo/<?php echo $row['photo'];?>">
               <div class="carousel-caption">
-                <h5>XXX</h5>
+                <h5><?php echo $row['title_photo']; ?></h5>
               </div>
             </div>
 
+            <?php }else{
+            ?>
+
             <div class="carousel-item">
-              <img class="d-block w-100" src="asset/b.png">
+              <img class="d-block w-100" src="photo/<?php echo $row['photo'];?>">
               <div class="carousel-caption">
-                <h5>NNN</h5>
+                <h5><?php echo $row['title_photo']; ?></h5>
               </div>
             </div>
 
-            <div class="carousel-item">
-              <img class="d-block w-100" src="asset/c.png">
-              <div class="carousel-caption">
-                <h5>TTT</h5>
-              </div>
-            </div>
+            <?php } ?>
+            <?php }  ?>
+
 
           </div>
 
@@ -49,6 +69,7 @@
             <span class="sr-only">Next</span>
           </a>
       </div>
+
 
     
 
@@ -114,8 +135,7 @@
             $post_content = $row['post_content'];
       ?>
 
-                  
-        <!--first Blog Post -->
+        
         <h2> 
           <a href="post.php?p_id='<?php echo $post_id; ?>'"><?php echo $post_title; ?></a>
         </h2>

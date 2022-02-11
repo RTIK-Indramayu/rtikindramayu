@@ -78,9 +78,15 @@ if(isset($_GET['delete'])){
     $query = "DELETE FROM posts WHERE post_id = {$the_post_id}";
     $delete_query = mysqli_query($connection,$query);
 
+    $query = "DELETE FROM photo WHERE id_photo = {$the_post_id}";
+    $delete_query = mysqli_query($connection,$query);
+    header("Location:view_photo.php");
+
     $query = "DELETE FROM comments WHERE comment_post_id = {$the_post_id}";
     $delete_query = mysqli_query($connection,$query);
     header("Location:posts.php");
+
+
 
 }
 ?>

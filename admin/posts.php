@@ -26,9 +26,17 @@
           case 'add_post';
           include "includes/add_post.php" ;    
           break;
+
+          case 'add_post_foto';
+          include "includes/add_post_foto.php" ;    
+          break;
+
+          case 'view_photo';
+          include "includes/view_photo.php" ;    
+          break;
         
           default:
-          include "includes/view_all_posts.php" ;
+          include"includes/view_all_posts.php" ;
           break;
         }
         ?>

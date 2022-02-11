@@ -13,7 +13,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="postDropdown">
             <a class="dropdown-item" href="./posts.php">View All Posts</a>
+            <a class="dropdown-item" href="./posts.php?source=view_photo">View Photo</a>
             <a class="dropdown-item" href="./posts.php?source=add_post">Add Post</a>
+            <a class="dropdown-item" href="./posts.php?source=add_post_foto">Add Post Photo</a>
           </div>
         </li>
         <li class="nav-item">

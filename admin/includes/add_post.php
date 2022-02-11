@@ -38,6 +38,28 @@ if(isset($_POST['create_post'])){
 
     confirm_query($stmt_create_post_query);
 
+    $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
+    $select_cat_user = mysqli_query($connection,$query);
+    while($row = mysqli_fetch_assoc($select_cat_user)){
+        $the_cat_user= $row['cat_user'];
+    }
+
+    $query = "SELECT * FROM categories WHERE cat_user LIKE '%$post_user%,' AND cat_id = {$post_category_id}";
+    $search_query = mysqli_query($connection,$query);
+    confirm_query($search_query);
+
+    $count = mysqli_num_rows($search_query);
+
+    if(empty($count)){
+        $append_data = $the_cat_user . $post_user .',';
+    }else{
+        $append_data = $the_cat_user;
+    }
+
+    $query = "UPDATE categories SET cat_user = '{$append_data}'  WHERE cat_id = {$post_category_id}";
+    $update_cat_user_query = mysqli_query($connection, $query);
+    confirm_query($update_cat_user_query);
+
     header("location:posts.php");
 
 }
@@ -45,55 +67,54 @@ if(isset($_POST['create_post'])){
 ?>
 
 
-<form action="" method="POST" enctype="multipart/form-data">
-    <div class="form-group col-sm-3">
-        <label for="post_title">Post title</label>
-        <input type="text" class="form-control" name="post_title" >
-    </div>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <div class="form-group col-sm-3">
+            <label for="post_title">Post title</label>
+            <input type="text" class="form-control" name="post_title" >
+        </div>
 
-    <div class="form-group col-sm">
-        <label for="post_category_id">Post Category ID</label><br>
-        <select name="post_category_id" id="">   
+        <div class="form-group col-sm">
+            <label for="post_category_id">Post Category ID</label><br>
+            <select name="post_category_id" id="">    
             <?php   
             $query = "SELECT * FROM categories";
             $select_category = mysqli_query($connection,$query);
-
+            
             confirm_query($select_category);
+
             while($row = mysqli_fetch_assoc($select_category)){
             $cat_id = $row['cat_id'];
             $cat_title = $row['cat_title'];
-
+                
             echo "<option value='$cat_id'>{$cat_title}</option>";
             
             }
             ?>
-        </select>
-    </div>
 
-    <div class="form-group col-sm">
-        <label for="post_status">Post Status</label><br>
-        <select name="post_status" id="">
-            <option value="draft">draft</option>
-            <option value="published">published</option>
-        </select>
-    </div>
+            </select>
+        </div>
 
-    <div class="form-group col-sm">
-        <label for="post_image">Post Image</label>
-        <input type="file" class="form-control-file" name="post_image">
-    </div>
+        <div class="form-group col-sm">
+            <label for="post_status">Post Status</label><br>
+            <select name="post_status" id="">
+                <option value="draft">draft</option>
+                <option value="published">published</option>
+            </select>
+        </div>
 
-    <div class="form-group col-sm-5">
-        <label for="post_tags">Post Tags</label>
-        <input type="text" class="form-control" name="post_tags" >
-    </div>
-
-    <div class="form-group col-sm-6">
-        <label for="post_content">Post Content</label>
-        <textarea class="form-control" id="editor" name="post_content" rows="4"></textarea>
-    </div>
-
-    <div class="form-group col-sm">
-        <input type="submit" class="btn btn-secondary " name="create_post" value="Publish Post" >
-    </div>
-</form>
+        <div class="form-group col-sm">
+            <label for="post_image">Post Image</label>
+            <input type="file" class="form-control-file" name="post_image">
+        </div>
+        <div class="form-group col-sm-5">
+            <label for="post_tags">Post Tags</label>
+            <input type="text" class="form-control" name="post_tags" >
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="post_content">Post Content</label>
+            <textarea class="form-control" id="editor" name="post_content"></textarea>
+        </div>
+        <div class="form-group col-sm">
+            <input type="submit" class="btn btn-secondary " name="create_post" value="Publish Post" >
+        </div>
+    </form>
