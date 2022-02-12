@@ -1,1 +1,1 @@
-# rtikindramayu# Jangan lupa Pull dulu guys git push
+# rtikindramayu# Jangan lupa Pull dulu guys
