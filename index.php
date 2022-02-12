@@ -3,6 +3,39 @@
 <!-- Navigation -->
 <?php include "includes/navigation.php"; ?>
 
+
+<style>
+
+.text1 {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 7; 
+           line-clamp: 7; 
+   -webkit-box-orient: vertical;
+}
+
+
+@media (max-width:629px) {
+  img#optionalstuff {
+    display: none;
+  }
+}
+
+@media (max-width:629px) {
+  h2#forandroid {
+    text-align: center;
+    font-size: 28px;
+
+
+  }
+}
+
+
+
+
+</style>
+
   <!-- Page Content -->
 
 
@@ -68,6 +101,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
+
       </div>
 
 
@@ -76,8 +110,8 @@
       <div class="container">
         <div class="row">
           <div class="justify center col-sm-6 m-5 " style="color: #626262;">
-            <h2>ABOUT US</h2><br>
-            <span align="justify ">
+            <h2 id="forandroid" >ABOUT US</h2><br>
+            <span align="justify">
 
               <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
 
@@ -88,24 +122,32 @@
 
             
           <div class="row container-fluid col-sm-4 align-self-center justify-content-center" >
-            <span  style="margin-left:50px;"><img src="asset/logortik.png" ></span>
+            <img id="optionalstuff" style="margin-left:50px;"  src="asset/logortik.png" >
           </div>
 
         </div>
       </div>
 
 
-      <div class="container" style="color: #626262;">
-           <h2>SUSUNAN ORGANISASI</h2><br>
-        <br>
-        <img src="asset/bagan.png" class="mx-auto d-block" style="width:100%"> 
+      <div class="container mx-5" style="color: #626262;">
+        
+           <h2 id="forandroid">ORGANIZATION STRUCTURE</h2><br>
+      
+        <img src="asset/bagan.png" class="mx-auto d-block" style="width:100%; margin-top:15px;margin-bottom:20px;"> 
+
       </div>
 
+
+
+
       <!-- Blog Entries Column -->
-      <div class="col-md-8">
+      <div class="col-md-6 m-5" >
+
+      <h2 id="forandroid" style="color: #626262; text-align:center;">NEWS UPDATE</h2><br>
+
       
       <?php
-        $per_page =4;
+        $per_page =2;
 
         if(isset($_GET['page'])){
           $page = $_GET['page'];
@@ -136,10 +178,11 @@
       ?>
 
         
-        <h2> 
-          <a href="post.php?p_id='<?php echo $post_id; ?>'"><?php echo $post_title; ?></a>
-        </h2>
-        <p class="lead">
+        <h3> 
+          <a style="color: #0275d8;" href="post.php?p_id='<?php echo $post_id; ?>'"><?php echo $post_title; ?></a>
+        </h3>
+
+        <p style="color: #626262;" class="lead">
             <?php
             $query = "SELECT * FROM users WHERE username = '$post_user' ";
             $select_user_query = mysqli_query($connection,$query);
@@ -149,22 +192,29 @@
             }
             $name = $user_firstname.' '.$user_lastname;
             ?>
-            by <a href="post.php?p_id='<?php echo $post_id; ?>'"><?php echo $name; ?></a>
-        </p>
-        <p> <i class="far fa-clock"></i> <?php echo $post_date; ?></p>
+            Written by : <a href="post.php?p_id='<?php echo $post_id; ?>'"><?php echo $name; ?></a>
+        </p> 
+        <p style="color: #626262;"> <i class="far fa-clock"></i> <?php echo $post_date; ?></p>
         <hr>
         <a href="post.php?p_id='<?php echo $post_id; ?>'">
         <img class="img-fluid" src="images/<?php echo imagePlaceholder($post_image);?>" alt="img">
         </a>
         <hr>  
-        <p><?php echo $post_content; ?></p>
-          <a href="post.php?p_id='<?php echo $post_id; ?>'" class="btn btn-primary">Read More &rarr;</a>
+
+        <div class="container">
+          <span class="text1"><p><?php echo $post_content; ?></p></span>
+            <br>
+            <a href="post.php?p_id='<?php echo $post_id; ?>'" class="btn btn-primary">Read More &rarr;</a>
+        </div>
         <hr>  
               
         <?php } ?>
  
 
       </div>
+    
+    
+
 
 <!-- Sidebar Widgets Column -->
 <?php  include "includes/sidebar.php"; ?>
