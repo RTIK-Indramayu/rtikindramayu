@@ -5,7 +5,7 @@
 
 
 <style>
-
+/*Hiden Text untuk read more*/
 .text1 {
    overflow: hidden;
    text-overflow: ellipsis;
@@ -15,7 +15,7 @@
    -webkit-box-orient: vertical;
 }
 
-
+/*Untuk tampilan Android*/
 @media (max-width:629px) {
   img#optionalstuff {
     display: none;
@@ -30,9 +30,6 @@
 
   }
 }
-
-
-
 
 </style>
 
@@ -104,10 +101,9 @@
 
       </div>
 
-
     
 
-      <div class="container">
+      <div id="about" class="container">
         <div class="row">
           <div class="justify center col-sm-6 m-5 " style="color: #626262;">
             <h2 id="forandroid" >ABOUT US</h2><br>
@@ -129,15 +125,14 @@
       </div>
 
 
-      <div class="container mx-5" style="color: #626262;">
+
+      <div id="member" class="container mx-5" style="color: #626262;">
         
            <h2 id="forandroid">ORGANIZATION STRUCTURE</h2><br>
       
         <img src="asset/bagan.png" class="mx-auto d-block" style="width:100%; margin-top:15px;margin-bottom:20px;"> 
 
       </div>
-
-
 
 
       <!-- Blog Entries Column -->
@@ -261,5 +256,7 @@
     ?>
   </ul>
 </nav>
+
+
 
 <?php  include "includes/footer.php"; ?>

@@ -1,5 +1,47 @@
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    overflow-y: auto;
+    padding-top: 65px; /* padding for fixed navbar */
+
+
+    content-inner margin-top: -30px !important;
+}
+
+/* optional style active link */
+.navbar-light .navbar-nav .nav-link.active {
+    background-color: magenta;
+}
+
+
+
+
+/* hidden spacer before sections for proper offset */
+main h3:before {
+    height: 65px;
+    content: "";
+    display:block;
+}
+
+
+/*Untuk Hide Navbar*/
+#navbar {
+  
+  transition: top 0.8s; /* Transition effect when sliding down (and up) */
+}
+
+
+</style>
+
+
 <div style="padding-bottom:60px;">
-<nav class="navbar navbar-inverse navbar-expand-lg navbar-light bg-light fixed-top shadow p-3 mb-5 rounded">
+
+
+<nav id="navbar" class="navbar navbar-inverse navbar-expand-lg navbar-light bg-light fixed-top shadow p-3 mb-5 rounded">
   
       <div class="container">
         <a class="navbar-brand" href="index.php">
@@ -33,10 +75,11 @@
               </li>
 
               <li class="nav-item ">
-                <a class="nav-link" href="">Member
+                <a class="nav-link" href="#member">Member
                 </a>
               </li>
 
+              
 
 
 
@@ -57,11 +100,11 @@
                 </a>
               </li>  -->
               
-
               <li class="nav-item ">
                 <a class="nav-link" href="contact.php">Contact us
                 </a>
-              </li>           
+              </li> 
+                        
 
           </ul>
         </div>
