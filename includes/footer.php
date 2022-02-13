@@ -66,8 +66,8 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.3);">
-    © 2022 | 
-    <a class="text-white" href="https://mohramdaniyusman.github.io/">MRY</a>
+    © 2022 | RTIK INDRAMAYU
+    <a class="text-white" href="https://mohramdaniyusman.github.io/">| MRY</a>
   </div>
   <!-- Copyright -->
 </footer>
@@ -85,7 +85,7 @@
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
       } else {
-        document.getElementById("navbar").style.top = "-300px";
+        document.getElementById("navbar").style.top = "-400px";
       }
 
       prevScrollpos = currentScrollPos;

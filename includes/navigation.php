@@ -31,7 +31,7 @@ main h3:before {
 /*Untuk Hide Navbar*/
 #navbar {
   
-  transition: top 1.1s; /* Transition effect when sliding down (and up) */
+  transition: top 0.7s; /* Transition effect when sliding down (and up) */
 }
 
 
