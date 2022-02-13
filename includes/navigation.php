@@ -9,7 +9,7 @@ body {
     padding-top: 65px; /* padding for fixed navbar */
 
 
-    content-inner margin-top: -30px !important;
+    /*content-inner margin-top: -30px !important;*/
 }
 
 /* optional style active link */
@@ -31,7 +31,7 @@ main h3:before {
 /*Untuk Hide Navbar*/
 #navbar {
   
-  transition: top 0.8s; /* Transition effect when sliding down (and up) */
+  transition: top 1.1s; /* Transition effect when sliding down (and up) */
 }
 
 
@@ -79,7 +79,13 @@ main h3:before {
                 </a>
               </li>
 
-              
+              <li class="nav-item ">
+                <a class="nav-link" href="#news">News
+                </a>
+              </li>
+
+
+
 
 
 
@@ -91,9 +97,9 @@ main h3:before {
 
               <?php
               if(!isset($_SESSION['user_role'])){
-                echo '<li class="nav-item "><a class="nav-link" href="login.php">Login</a></li>';
+                echo '<li class="nav-item "><a class="nav-link" href="#login">Login</a></li>';
               }
-              ?>
+              ?> 
 
              <!--  <li class="nav-item ">
                 <a class="nav-link" href="registration.php">Registration

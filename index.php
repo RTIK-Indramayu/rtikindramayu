@@ -136,10 +136,9 @@
 
 
       <!-- Blog Entries Column -->
-      <div class="col-md-6 m-5" >
+      <div id="news" class="col-md-6 m-5" >
 
       <h2 id="forandroid" style="color: #626262; text-align:center;">NEWS UPDATE</h2><br>
-
       
       <?php
         $per_page =2;
@@ -194,7 +193,7 @@
         <a href="post.php?p_id='<?php echo $post_id; ?>'">
         <img class="img-fluid" src="images/<?php echo imagePlaceholder($post_image);?>" alt="img">
         </a>
-        <hr>  
+        <!-- <hr>  --> 
 
         <div class="container">
           <span class="text1"><p><?php echo $post_content; ?></p></span>
@@ -202,6 +201,7 @@
             <a href="post.php?p_id='<?php echo $post_id; ?>'" class="btn btn-primary">Read More &rarr;</a>
         </div>
         <hr>  
+        <br>
               
         <?php } ?>
  
