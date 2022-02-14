@@ -1,7 +1,7 @@
 <?php  include "includes/header.php"; ?>
 
 <!-- Navigation -->
-<?php  include "includes/navigation.php"; ?>
+<?php  include "includes/navigation_second.php"; ?>
 
 <?php
 

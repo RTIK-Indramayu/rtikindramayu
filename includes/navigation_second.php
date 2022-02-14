@@ -69,23 +69,6 @@ main h3:before {
                 </a>
               </li>
 
-              <li class="nav-item ">
-                <a class="nav-link " href="#about">About us
-                </a>
-              </li>
-
-              <li class="nav-item ">
-                <a class="nav-link" href="#member">Member
-                </a>
-              </li>
-
-              <li class="nav-item ">
-                <a class="nav-link" href="#news">News
-                </a>
-              </li>
-
-
-
 
 
 
@@ -97,7 +80,7 @@ main h3:before {
 
               <?php
               if(!isset($_SESSION['user_role'])){
-                echo '<li class="nav-item"><a class="nav-link" href="#login">Login</a></li>';
+                echo '<li class="nav-item "><a class="nav-link" href="login.php">Login</a></li>';
               }
               ?> 
 

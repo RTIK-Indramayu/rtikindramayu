@@ -130,7 +130,7 @@
         
            <h2 id="forandroid">ORGANIZATION STRUCTURE</h2><br>
       
-        <img src="asset/bagan.png" class="mx-auto d-block" style="width:100%; margin-top:15px;margin-bottom:20px;"> 
+        <img src="asset/Struktur Organisasi Relawan TIK_page-00014.jpg" class="mx-auto d-block" style="width:100%; margin-top:-5px;margin-bottom:20px;"> 
 
       </div>
 
