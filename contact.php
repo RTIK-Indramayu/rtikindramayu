@@ -70,21 +70,32 @@ if (isset($_POST['submit'])) {
             <div class="col-sm-5 border border-transparent shadow-lg mt-4 px-5 py-3 ">
                 <div class="form-wrap">
 				    <h3 class="text-center"><i class="py-3 fas fa-envelope fa-2x text-secondary"> Mail</i> </h3>
-                        <form role="form" action="contact.php" method="post" id="login-form" autocomplete="off">
-                            
+                        <form name="contact-us" role="form" action="contact.php" method="post" id="login-form" autocomplete="off">
+
+                        <div class="alert alert-secondary alert-dismissible fade show d-none" role="alert" id="alert-terkirim">
+                            <strong>Terima kasih</strong> sudah menghubungi kami, pesan Anda sudah kami terima.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                                                    
                             <div class="form-group">
-                                <label for="email" class="sr-only">Email</label>
-                                <input type="email" name="pengirim" id="pengirim" class="form-control" placeholder="Enter Your email">
+                                <label for="email" class="sr-only">Nama</label>
+                                <input type="text" name="nama" id="pengirim" class="form-control" placeholder="Nama" required>
                             </div>
                             <div class="form-group">
-                                <label for="subject" class="sr-only">subject</label>
-                                <input type="text" name="subjek" id="subjek" class="form-control" placeholder="Enter Your subject">
+                                <label for="subject" class="sr-only">Email</label>
+                                <input type="email" name="email" id="subjek" class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="pesan" id="pesan" cols="50" rows="6" placeholder="Type Your Message..."></textarea>
+                                <textarea class="form-control" name="pesan" id="pesan" cols="50" rows="6" placeholder="Tulis pesan Anda..." required></textarea>
                             </div>
 
-                            <input type="submit" name="submit" id="btn-login" class="btn btn-secondary btn-lg btn-block mb-3" value="Send">
+                            <button type="submit" name="submit" id="btn-kirim" class="btn btn-secondary">Kirim</button>
+                            <button id="btn-loading" class="btn btn-secondary d-none" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loading...
+                            </button>
                         </form>
                 </div>
             </div> <!-- /.col-sm-5 -->
@@ -94,6 +105,33 @@ if (isset($_POST['submit'])) {
 <br>    
 <hr>
 </div> <!-- /.container -->
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwTbJT0T3LpnvNuYBWRFVruWYF_QI6GSb8oKgP87OJp-JK_YxXX2IXIJZi0E0dEwHKc/exec';
+  const form = document.forms['contact-us'];
+
+  const btnKirim = document.getElementById('btn-kirim');
+  const btnLoading = document.getElementById('btn-loading');
+  const alertTerkirim = document.getElementById('alert-terkirim');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+
+    btnLoading.classList.toggle('d-none');
+    btnKirim.classList.toggle('d-none');
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            alertTerkirim.classList.toggle('d-none');
+            form.reset();
+            // console.log('Success!', response);
+        })
+        .catch(error => console.error('Error!', error.message))
+  })
+</script>
 
 <?php include "includes/footer.php";?>
 
